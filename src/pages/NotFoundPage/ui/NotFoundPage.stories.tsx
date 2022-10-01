@@ -3,18 +3,18 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import AboutPage from './AboutPage';
+import { NotFoundPage } from './NotFoundPage';
 
 export default {
-   title: 'pages/AboutPage',
-   component: AboutPage,
+   title: 'pages/NotFoundPage',
+   component: NotFoundPage,
    argTypes: {
       backgroundColor: { control: 'color' },
    },
-} as ComponentMeta<typeof AboutPage>;
+} as ComponentMeta<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof AboutPage> = (args) => (
-   <AboutPage {...args} />
+const Template: ComponentStory<typeof NotFoundPage> = (args) => (
+   <NotFoundPage {...args} />
 );
 
 export const Light = Template.bind({});
