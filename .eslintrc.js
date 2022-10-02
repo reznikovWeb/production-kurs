@@ -8,8 +8,7 @@ module.exports = {
       'plugin:react/recommended',
       'airbnb',
       'plugin:i18next/recommended',
-      'plugin:@typescript-eslint/eslint-recommended',
-      'plugin:@typescript-eslint/recommended',
+
    ],
    parser: '@typescript-eslint/parser',
    parserOptions: {
@@ -46,7 +45,6 @@ module.exports = {
             ignoreAttribute: ['data-testid', 'to'],
          }],
       'max-len': ['error', { ignoreComments: true, code: 100 }],
-      '@typescript-eslint/no-unused-vars': ['error'],
 
    },
    globals: {
