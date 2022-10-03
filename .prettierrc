@@ -1,0 +1,13 @@
+{
+  "tabWidth": 3,
+  "singleQuote": true,
+  "importOrder": [
+    "^shared/(.*)$",
+    "^widgets/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "trailingComma": "all",
+  "printWidth": 100
+}

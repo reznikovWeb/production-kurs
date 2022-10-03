@@ -4,12 +4,7 @@ module.exports = {
       es2021: true,
       jest: true,
    },
-   extends: [
-      'plugin:react/recommended',
-      'airbnb',
-      'plugin:i18next/recommended',
-
-   ],
+   extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
    parser: '@typescript-eslint/parser',
    parserOptions: {
       ecmaFeatures: {
@@ -18,7 +13,7 @@ module.exports = {
       ecmaVersion: 'latest',
       sourceType: 'module',
    },
-   plugins: ['react', '@typescript-eslint', 'i18next'],
+   plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
    rules: {
       'react/jsx-indent': [2, 3],
       'react/jsx-indent-props': [2, 3],
@@ -27,7 +22,8 @@ module.exports = {
          2,
          {
             extensions: ['.js', '.jsx', '.tsx'],
-         }],
+         },
+      ],
       'import/no-unresolved': 'off',
       'import/prefer-default-export': 'off',
       'no-unused-vars': 'warn',
@@ -39,22 +35,33 @@ module.exports = {
       'import/no-extraneous-dependencies': 'off',
       'no-underscore-dangle': 'off',
       'react/react-in-jsx-scope': 'off',
-      'i18next/no-literal-string': ['error',
+      'i18next/no-literal-string': [
+         'error',
          {
             markupOnly: true,
             ignoreAttribute: ['data-testid', 'to'],
-         }],
+         },
+      ],
       'max-len': ['error', { ignoreComments: true, code: 100 }],
       'linebreak-style': 0,
-
+      'arrow-body-style': ['warn', 'as-needed'],
+      'jsx-a11y/no-static-element-interactions': 'off',
+      'jsx-a11y/click-events-have-key-events': 'off',
+      'react-hooks/exhaustive-deps': 'error',
+      'react-hooks/rules-of-hooks': 'error',
+      'implicit-arrow-linebreak': 'warn',
    },
    globals: {
       __IS_DEV__: true,
    },
-   overrides: [{
-      files: ['**/src/**/*.test.{ts,tsx}'],
-      rules: {
-         'i18next/no-literal-string': 'off',
+   overrides: [
+      {
+         files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+         rules: {
+            'i18next/no-literal-string': 'off',
+            'max-len': 'off',
+            'operator-linebreak': 'off',
+         },
       },
-   }],
+   ],
 };
