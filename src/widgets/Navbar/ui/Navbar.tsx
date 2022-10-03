@@ -26,15 +26,14 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
             className={styles.links}
             onClick={onToggleModal}
          >
-            {t('Войти')}
+            {t('Войтии')}
          </Button>
 
          {/* eslint-disable-next-line i18next/no-literal-string */}
          <Modal isOpen={isAuthModal} onClose={onToggleModal}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Consectetur eaque earum eius enim error facilis id iure, laboriosam
-            modi nesciunt officiis omnis, quae quam quidem, rem sed tempore
-            voluptate voluptatem!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur eaque earum eius
+            enim error facilis id iure, laboriosam modi nesciunt officiis omnis, quae quam quidem,
+            rem sed tempore voluptate voluptatem!
          </Modal>
       </div>
    );
