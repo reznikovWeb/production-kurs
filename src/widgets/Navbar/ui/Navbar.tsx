@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -18,7 +18,6 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
    const onToggleModal = useCallback(() => {
       setIsAuthModal((prev) => !prev);
    }, []);
-
    return (
       <div className={classNames(styles.Navbar, {}, [className])}>
          <Button
