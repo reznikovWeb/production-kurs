@@ -1,6 +1,6 @@
+import { useTheme } from 'app/providers/ThemeProvider';
 import React, {
    ReactNode,
-   SyntheticEvent,
    useCallback,
    useEffect,
    useRef,
@@ -30,6 +30,8 @@ export const Modal: React.FC<ModalProps> = ({
    const [isClosing, setIsClosing] = useState<boolean>(false);
 
    const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+   const { theme } = useTheme();
 
    const mods: Record<string, boolean> = {
       [styles.opened]: isOpen,
@@ -63,7 +65,6 @@ export const Modal: React.FC<ModalProps> = ({
       if (isOpen) {
          window.addEventListener('keydown', onKeyDown);
       }
-
       return () => {
          clearInterval(timerRef.current);
          window.removeEventListener('keydown', onKeyDown);

@@ -7,6 +7,7 @@
    opacity: 0;
    pointer-events: none; // Для того, чтобы нельзя было кликать
    z-index: -1;
+   color: var(--primary-color);
 }
 
 .overlay {
