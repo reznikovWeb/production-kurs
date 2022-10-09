@@ -1,7 +1,10 @@
 {
   "decrement": "decrement",
   "increment": "increment",
+  "login": "login",
   "throw error": "throw error",
+  "Введите username": "Введите username",
+  "Введите пароль": "Введите пароль",
   "Войти": "Войти",
   "Войтии": "Войтии",
   "Выбросить ошибку": "Выбросить ошибку",
