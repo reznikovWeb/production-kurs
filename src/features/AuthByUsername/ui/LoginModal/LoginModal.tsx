@@ -19,7 +19,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
 }) => {
    return (
       <Modal
-         className={classNames(styles.LoginModal, {}, [className])}
+         className={classNames('', {}, [className])}
          isOpen={isOpen}
          onClose={onClose}
          lazy
