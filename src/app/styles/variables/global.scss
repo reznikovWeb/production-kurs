@@ -1,4 +1,7 @@
 :root {
+   // Начальная тема - dark
+
+   // Шрифты
    --font-family-main: consolas, "Times New Roman", serif;
    --font-size-m: 16px;
    --font-line-m: 24px;
@@ -20,4 +23,6 @@
 
    // Цвета
    --overlay-color: rgba(0 0 0 / 60%);
+   --red-light: red;
+   --red-dark: #ce0505;
 }
