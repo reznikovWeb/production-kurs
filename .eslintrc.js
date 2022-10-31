@@ -17,7 +17,7 @@ module.exports = {
    rules: {
       'react/jsx-indent': [2, 3],
       'react/jsx-indent-props': [2, 3],
-      indent: [2, 3],
+      indent: ['warn', 3],
       'react/jsx-filename-extension': [
          2,
          {
@@ -52,6 +52,7 @@ module.exports = {
       'implicit-arrow-linebreak': 'warn',
       'no-param-reassign': 'off',
       'object-curly-newline': 'off',
+      'operator-linebreak': 'off',
    },
    globals: {
       __IS_DEV__: true,
