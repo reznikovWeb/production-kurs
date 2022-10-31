@@ -36,11 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
    if (authData) {
       return (
          <div className={classNames(styles.Navbar, {}, [className])}>
-            <Button
-               theme={ThemeButton.CLEAR_INVERTED}
-               className={styles.links}
-               onClick={onLogout}
-            >
+            <Button theme={ThemeButton.CLEAR_INVERTED} className={styles.links} onClick={onLogout}>
                {t('Выйти')}
             </Button>
          </div>
@@ -49,15 +45,11 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
 
    return (
       <div className={classNames(styles.Navbar, {}, [className])}>
-         <Button
-            theme={ThemeButton.CLEAR_INVERTED}
-            className={styles.links}
-            onClick={onShowModal}
-         >
+         <Button theme={ThemeButton.CLEAR_INVERTED} className={styles.links} onClick={onShowModal}>
             {t('Войти')}
          </Button>
 
-         <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+         {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
       </div>
    );
 };
