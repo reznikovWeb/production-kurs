@@ -53,6 +53,7 @@ module.exports = {
       'no-param-reassign': 'off',
       'object-curly-newline': 'off',
       'operator-linebreak': 'off',
+      'prefer-template': 'off',
    },
    globals: {
       __IS_DEV__: true,
