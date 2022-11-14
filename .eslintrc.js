@@ -54,9 +54,11 @@ module.exports = {
       'object-curly-newline': 'off',
       'operator-linebreak': 'off',
       'prefer-template': 'off',
+      'no-undef': 'off',
    },
    globals: {
       __IS_DEV__: true,
+      __API__: true,
    },
    overrides: [
       {
