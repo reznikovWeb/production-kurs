@@ -28,7 +28,7 @@ module.exports = {
       'import/prefer-default-export': 'off',
       'no-unused-vars': 'warn',
       'react/require-default-props': 'off',
-      'react/jsx-props-no-spreading': 'warn',
+      'react/jsx-props-no-spreading': 'off',
       'react/function-component-definition': 'off',
       'no-shadow': 'off',
       'import/extensions': 'off',

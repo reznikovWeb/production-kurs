@@ -4,6 +4,7 @@
   "importOrder": [
     "^shared/(.*)$",
     "^widgets/(.*)$",
+    "^entities/(.*)$",
     "^[./]"
   ],
   "importOrderSeparation": true,
