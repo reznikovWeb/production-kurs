@@ -1,19 +1,23 @@
 import React, { useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import {
    ProfileCard,
+   ValidateProfileError,
    fetchProfileData,
    getProfileError,
    getProfileForm,
    getProfileLoading,
    getProfileReadonly,
+   getProfileValidateErrors,
    profileActions,
    profileReducer,
 } from 'entities/Profile';
@@ -30,15 +34,22 @@ const reducers: ReducersList = {
 };
 
 const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
+   const { t } = useTranslation('profile');
+
    const dispatch = useAppDispatch();
    const form = useSelector(getProfileForm);
    const error = useSelector(getProfileError);
    const isLoading = useSelector(getProfileLoading);
    const readonly = useSelector(getProfileReadonly);
+   const validateErrors = useSelector(getProfileValidateErrors);
 
-   useEffect(() => {
-      dispatch(fetchProfileData());
-   }, [dispatch]);
+   const validateErrorTranslates = {
+      [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+      [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+      [ValidateProfileError.INCORRECT_COUNTRY]: t('Неккоректный регион'),
+      [ValidateProfileError.INCORRECT_AGE]: t('Неккоректный возраст'),
+      [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+   };
 
    const onChangeFirstname = useCallback(
       (value?: string) => {
@@ -96,10 +107,18 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
       [dispatch],
    );
 
+   useEffect(() => {
+      dispatch(fetchProfileData());
+   }, [dispatch]);
+
    return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
          <div className={classNames(styles.ProfilePage, {}, [className])}>
             <ProfilePageHeader />
+            {validateErrors?.length &&
+               validateErrors.map((err) => (
+                  <Text theme={TextTheme.ERROR} text={validateErrorTranslates[err]} key={err} />
+               ))}
             <ProfileCard
                data={form}
                isLoading={isLoading}
