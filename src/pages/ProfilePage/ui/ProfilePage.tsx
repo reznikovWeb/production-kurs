@@ -108,7 +108,9 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
    );
 
    useEffect(() => {
-      dispatch(fetchProfileData());
+      if (__PROJECT__ !== 'storybook') {
+         dispatch(fetchProfileData());
+      }
    }, [dispatch]);
 
    return (
