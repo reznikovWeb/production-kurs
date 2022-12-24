@@ -4,7 +4,7 @@ import React from 'react';
 import { CountrySelect } from './CountrySelect';
 
 export default {
-   title: 'entity/CurrencySelect',
+   title: 'entities/CountrySelect',
    component: CountrySelect,
 } as ComponentMeta<typeof CountrySelect>;
 

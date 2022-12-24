@@ -3,7 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+   DynamicModuleLoader,
+   ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 
@@ -22,7 +25,6 @@ import {
    profileReducer,
 } from 'entities/Profile';
 
-import styles from './ProfilePage.module.scss';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -115,7 +117,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
 
    return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-         <div className={classNames(styles.ProfilePage, {}, [className])}>
+         <div className={classNames('', {}, [className])}>
             <ProfilePageHeader />
             {validateErrors?.length &&
                validateErrors.map((err) => (

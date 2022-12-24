@@ -9,6 +9,7 @@ interface ArticlesPageProps {
 }
 
 const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
+   // eslint-disable-next-line i18next/no-literal-string
    return <div className={classNames(styles.ArticlesPage, {}, [className])}>ARTICLES PAGE</div>;
 };
 

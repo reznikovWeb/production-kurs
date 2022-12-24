@@ -4,7 +4,7 @@ import React from 'react';
 import { CurrencySelect } from './CurrencySelect';
 
 export default {
-   title: 'entity/CurrencySelect',
+   title: 'entities/CurrencySelect',
    component: CurrencySelect,
 } as ComponentMeta<typeof CurrencySelect>;
 
