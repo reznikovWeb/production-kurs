@@ -1,14 +1,8 @@
-import {
-   AnyAction,
-   CombinedState,
-   Dispatch,
-   EnhancedStore,
-   Reducer,
-   ReducersMapObject,
-} from '@reduxjs/toolkit';
+import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { LoginSchema } from 'features/AuthByUsername';
 import { To } from 'history';
+import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { NavigateOptions } from 'react-router';
 
 import { ArticleDetailsSchema } from 'entities/Article';
@@ -24,6 +18,7 @@ export interface StateSchema {
    loginForm?: LoginSchema;
    profile?: ProfileSchema;
    articleDetails?: ArticleDetailsSchema;
+   articleDetailsComments?: ArticleDetailsCommentsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
