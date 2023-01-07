@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,36 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test",
+      "id": "uSMvdV2"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "test user",
+      "id": "xdocfIg"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Привет мир",
+      "id": "24nVAz1"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "ыфвв",
+      "id": "9NN7KhW"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "ыв",
+      "id": "Ig_2H-t"
     }
   ],
   "users": [
@@ -118,14 +150,28 @@
       "avatar": "https://academy.avast.com/hubfs/New_Avast_Academy/Hackers/Hacker-Thumb-a1.png"
     }
   ],
-  "profile": {
-    "first": "jgh",
-    "lastname": "asf",
-    "age": 465,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "jgh",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://academy.avast.com/hubfs/New_Avast_Academy/Hackers/Hacker-Thumb-a1.png"
+    },
+    {
+      "id": "2",
+      "first": "Danil",
+      "lastname": "Re",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://academy.avast.com/hubfs/New_Avast_Academy/Hackers/Hacker-Thumb-a1.png"
+    }
+  ]
 }

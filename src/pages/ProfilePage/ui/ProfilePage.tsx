@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
@@ -8,6 +9,7 @@ import {
    ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 import { Country } from 'entities/Country';
@@ -38,12 +40,15 @@ const reducers: ReducersList = {
 const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
    const { t } = useTranslation('profile');
 
-   const dispatch = useAppDispatch();
+   const { id } = useParams<{ id: string }>();
+
    const form = useSelector(getProfileForm);
    const error = useSelector(getProfileError);
    const isLoading = useSelector(getProfileLoading);
    const readonly = useSelector(getProfileReadonly);
    const validateErrors = useSelector(getProfileValidateErrors);
+
+   const dispatch = useAppDispatch();
 
    const validateErrorTranslates = {
       [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
@@ -109,11 +114,9 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
       [dispatch],
    );
 
-   useEffect(() => {
-      if (__PROJECT__ !== 'storybook') {
-         dispatch(fetchProfileData());
-      }
-   }, [dispatch]);
+   useInitialEffect(() => {
+      if (id) dispatch(fetchProfileData(id));
+   });
 
    return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
