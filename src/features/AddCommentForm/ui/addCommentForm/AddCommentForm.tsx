@@ -50,7 +50,7 @@ const addCommentForm = memo(({ className, onSendComment }: addCommentFormProps) 
             <Input
                className={styles.input}
                placeholder={t('Введите текст комментария')}
-               value={text}
+               value={text || ''}
                onChange={onCommentTextChange}
             />
             <Button theme={ThemeButton.OUTLINE} onClick={onSendHandler}>

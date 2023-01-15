@@ -15,7 +15,7 @@ module.exports = {
    },
    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
    rules: {
-      'react/jsx-indent': [2, 3],
+      'react/jsx-indent': 'off',
       'react/jsx-indent-props': [2, 3],
       indent: 'off',
       'react/jsx-filename-extension': [
@@ -55,6 +55,7 @@ module.exports = {
       'operator-linebreak': 'off',
       'prefer-template': 'off',
       'no-undef': 'off',
+      'react/no-array-index-key': 'off',
    },
    globals: {
       __IS_DEV__: true,
