@@ -10,6 +10,7 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 import { Country } from 'entities/Country';
@@ -120,7 +121,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
 
    return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-         <div className={classNames('', {}, [className])}>
+         <Page className={classNames('', {}, [className])}>
             <ProfilePageHeader />
             {validateErrors?.length &&
                validateErrors.map((err) => (
@@ -140,7 +141,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
                onChangeCurrency={onChangeCurrency}
                onChangeCountry={onChangeCountry}
             />
-         </div>
+         </Page>
       </DynamicModuleLoader>
    );
 };

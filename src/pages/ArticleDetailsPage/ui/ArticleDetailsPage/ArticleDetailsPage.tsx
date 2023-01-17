@@ -13,6 +13,7 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Page } from 'shared/ui/Page/Page';
 import { Text } from 'shared/ui/Text/Text';
 
 import { ArticleDetails } from 'entities/Article';
@@ -63,15 +64,15 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({ className }) =>
 
    if (!id) {
       return (
-         <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+         <Page className={classNames(styles.ArticleDetailsPage, {}, [className])}>
             {t('Статья не найдена')}
-         </div>
+         </Page>
       );
    }
 
    return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-         <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+         <Page className={classNames(styles.ArticleDetailsPage, {}, [className])}>
             <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
                {t('Назад к списку')}
             </Button>
@@ -79,7 +80,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({ className }) =>
             <Text className={styles.commentTitle} title={t('Комментарии')} />
             <AddCommentForm onSendComment={onSendComment} />
             <CommentList isLoading={commentsIsLoading} comments={comments} />
-         </div>
+         </Page>
       </DynamicModuleLoader>
    );
 };

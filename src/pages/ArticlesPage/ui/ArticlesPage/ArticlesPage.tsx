@@ -8,15 +8,19 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
 
-import { Article, ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
+import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
 
 import {
    getArticlesPageError,
+   getArticlesPageHasMore,
    getArticlesPageIsLoading,
+   getArticlesPagePageNum,
    getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import styles from './ArticlesPage.module.scss';
 
@@ -43,17 +47,21 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
       [dispatch],
    );
 
+   const onLoadNextPart = useCallback(() => {
+      dispatch(fetchNextArticlesPage());
+   }, [dispatch]);
+
    useInitialEffect(() => {
-      dispatch(fetchArticlesList());
       dispatch(articlesPageActions.initState());
+      dispatch(fetchArticlesList({ page: 1 }));
    });
 
    return (
       <DynamicModuleLoader reducers={reducers}>
-         <div className={classNames(styles.ArticlesPage, {}, [className])}>
+         <Page className={classNames(styles.ArticlesPage, {}, [className])} onScrollEnd={onLoadNextPart}>
             <ArticleViewSelector view={view} onViewClick={onChangeView} />
             <ArticleList view={view} articles={articles} isLoading={isLoading} />
-         </div>
+         </Page>
       </DynamicModuleLoader>
    );
 };
