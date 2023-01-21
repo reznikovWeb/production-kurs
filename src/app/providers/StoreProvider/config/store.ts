@@ -1,4 +1,5 @@
 import { CombinedState, Reducer, ReducersMapObject, configureStore } from '@reduxjs/toolkit';
+import { scrollSaveReducer } from 'features/ScrollSave';
 import { To } from 'history';
 import { NavigateOptions } from 'react-router';
 
@@ -15,6 +16,7 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Red
       ...asyncReducers,
       counter: counterReducer,
       user: userReducer,
+      scrollSchema: scrollSaveReducer,
    };
 
    const reducerManager = createReducerManager(rootReducers);

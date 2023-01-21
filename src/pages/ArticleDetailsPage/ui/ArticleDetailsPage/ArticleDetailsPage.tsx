@@ -13,8 +13,9 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { Page } from 'shared/ui/Page/Page';
 import { Text } from 'shared/ui/Text/Text';
+
+import { Page } from 'widgets/Page/Page';
 
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';

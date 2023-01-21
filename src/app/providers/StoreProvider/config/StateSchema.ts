@@ -2,6 +2,7 @@ import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } f
 import { AxiosInstance } from 'axios';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
+import { ScrollSaveSchema } from 'features/ScrollSave';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
@@ -13,6 +14,7 @@ import { IUserSchema } from 'entities/User';
 export interface StateSchema {
    counter: CounterSchema;
    user: IUserSchema;
+   scrollSchema: ScrollSaveSchema;
 
    // Асинхронные редюсеры
    loginForm?: LoginSchema;
