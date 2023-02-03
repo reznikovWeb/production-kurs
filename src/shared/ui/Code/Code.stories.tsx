@@ -4,7 +4,7 @@ import React from 'react';
 import { Code } from './Code';
 
 export default {
-   title: 'pages/Code',
+   title: 'shared/Code',
    component: Code,
    argTypes: {
       backgroundColor: { control: 'color' },

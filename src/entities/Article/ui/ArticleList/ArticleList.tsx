@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -17,6 +19,8 @@ interface ArticleListProps {
 export const ArticleList = memo((props: ArticleListProps) => {
    const { className, articles, isLoading, view = ArticleView.SMALL } = props;
 
+   const { t } = useTranslation();
+
    return (
       <div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
          {articles.length > 0
@@ -30,6 +34,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
                   <ArticleListItemSkeleton className={styles.card} view={view} key={index} />
                ))}
                ;
+            </div>
+         )}
+         {!isLoading && !articles.length && (
+            <div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
+               <Text title={t('Статьи не найдены')} size={TextSize.L} />
             </div>
          )}
       </div>

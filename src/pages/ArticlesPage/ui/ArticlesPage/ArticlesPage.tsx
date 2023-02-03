@@ -1,6 +1,6 @@
-import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import React, { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
@@ -12,15 +12,18 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 
 import { Page } from 'widgets/Page/Page';
 
-import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 
 import {
    getArticlesPageError,
    getArticlesPageIsLoading,
+   getArticlesPageSearch,
    getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import styles from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -32,33 +35,32 @@ const reducers: ReducersList = {
 };
 
 const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
-   const dispatch = useAppDispatch();
+   const [searchParams] = useSearchParams();
 
    const articles = useSelector(getArticles.selectAll);
    const isLoading = useSelector(getArticlesPageIsLoading);
    const error = useSelector(getArticlesPageError);
    const view = useSelector(getArticlesPageView);
+   const search = useSelector(getArticlesPageSearch);
 
-   const onChangeView = useCallback(
-      (view: ArticleView) => {
-         dispatch(articlesPageActions.setView(view));
-      },
-      [dispatch],
-   );
+   const dispatch = useAppDispatch();
 
    const onLoadNextPart = useCallback(() => {
-      dispatch(fetchNextArticlesPage());
-   }, [dispatch]);
+      // TODO убрать этот костыль
+      if (!search) {
+         dispatch(fetchNextArticlesPage());
+      }
+   }, [dispatch, search]);
 
    useInitialEffect(() => {
-      dispatch(initArticlesPage());
+      dispatch(initArticlesPage(searchParams));
    });
 
    return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
          <Page className={classNames(styles.ArticlesPage, {}, [className])} onScrollEnd={onLoadNextPart}>
-            <ArticleViewSelector view={view} onViewClick={onChangeView} />
-            <ArticleList view={view} articles={articles} isLoading={isLoading} />
+            <ArticlesPageFilters />
+            <ArticleList className={styles.list} view={view} articles={articles} isLoading={isLoading} />
          </Page>
       </DynamicModuleLoader>
    );
