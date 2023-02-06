@@ -44,10 +44,10 @@ module.exports = {
          'error',
          {
             markupOnly: true,
-            ignoreAttribute: ['data-testid', 'to'],
+            ignoreAttribute: ['data-testid', 'to', 'target'],
          },
       ],
-      'max-len': ['error', { ignoreComments: true, code: 120 }],
+      'max-len': ['error', { ignoreComments: true, code: 125 }],
       'linebreak-style': 0,
       'arrow-body-style': ['warn', 'as-needed'],
       'jsx-a11y/no-static-element-interactions': 'off',
