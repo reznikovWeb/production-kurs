@@ -2,9 +2,8 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
    DynamicModuleLoader,
@@ -12,7 +11,6 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 
 import { Page } from 'widgets/Page/Page';
@@ -28,6 +26,7 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { articleDetailsPageReducer } from '../../model/slice';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import { getArticleRecommendations } from '../../model/slice/articleDetailsPageRecommendationsSlice';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import styles from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -42,8 +41,6 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({ className }) =>
    const { t } = useTranslation('article-details');
    const { id } = useParams<{ id: string }>();
 
-   const navigate = useNavigate();
-
    const dispatch = useAppDispatch();
 
    const comments = useSelector(getArticleComments.selectAll);
@@ -57,10 +54,6 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({ className }) =>
       },
       [dispatch],
    );
-
-   const onBackToList = useCallback(() => {
-      navigate(RoutePath.articles);
-   }, [navigate]);
 
    useInitialEffect(() => {
       dispatch(fetchCommentsByArticleId(id));
@@ -78,9 +71,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({ className }) =>
    return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
          <Page className={classNames(styles.ArticleDetailsPage, {}, [className])}>
-            <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
-               {t('Назад к списку')}
-            </Button>
+            <ArticleDetailsPageHeader />
             <ArticleDetails id={id} />
             <Text size={TextSize.L} className={styles.commentTitle} title={t('Рекомендуем')} />
             <ArticleList
