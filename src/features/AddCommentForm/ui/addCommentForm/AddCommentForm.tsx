@@ -10,9 +10,16 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
+import { HStack } from 'shared/ui/Stack';
 
-import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
+import {
+   getAddCommentFormError,
+   getAddCommentFormText,
+} from '../../model/selectors/addCommentFormSelectors';
+import {
+   addCommentFormActions,
+   addCommentFormReducer,
+} from '../../model/slice/addCommentFormSlice';
 import styles from './AddCommentForm.module.scss';
 
 export interface addCommentFormProps {
@@ -46,7 +53,12 @@ const addCommentForm = memo(({ className, onSendComment }: addCommentFormProps) 
 
    return (
       <DynamicModuleLoader reducers={reducers}>
-         <div className={classNames(styles.addCommentForm, {}, [className])}>
+         <HStack
+            justify="between"
+            gap="32"
+            max
+            className={classNames(styles.addCommentForm, {}, [className])}
+         >
             <Input
                className={styles.input}
                placeholder={t('Введите текст комментария')}
@@ -56,7 +68,7 @@ const addCommentForm = memo(({ className, onSendComment }: addCommentFormProps) 
             <Button theme={ThemeButton.OUTLINE} onClick={onSendHandler}>
                {t('Отправить')}
             </Button>
-         </div>
+         </HStack>
       </DynamicModuleLoader>
    );
 });

@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 
@@ -22,7 +21,7 @@ export const ArticleListItemSkeleton = memo(({ className, view }: ArticleListIte
          <div className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}>
             <Card>
                <div className={styles.header}>
-                  <Skeleton width={30} height={30} border={'50%'} />
+                  <Skeleton width={30} height={30} border="50%" />
                   <Skeleton width={150} height={16} className={styles.username} />
                   <Skeleton width={150} height={16} className={styles.date} />
                </div>

@@ -19,7 +19,7 @@ module.exports = {
       ecmaVersion: 'latest',
       sourceType: 'module',
    },
-   plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+   plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'fsd-rules'],
    rules: {
       'react/jsx-indent': 'off',
       'react/jsx-indent-props': [2, 3],
@@ -44,7 +44,15 @@ module.exports = {
          'error',
          {
             markupOnly: true,
-            ignoreAttribute: ['data-testid', 'to', 'target'],
+            ignoreAttribute: [
+               'data-testid',
+               'to',
+               'target',
+               'justify',
+               'align',
+               'direction',
+               'gap',
+            ],
          },
       ],
       'max-len': ['error', { ignoreComments: true, code: 125 }],
@@ -63,6 +71,7 @@ module.exports = {
       'react/no-array-index-key': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',
       'no-unused-vars': 'off',
+      'fsd-rules/path-checker': 'error',
    },
    globals: {
       __IS_DEV__: true,

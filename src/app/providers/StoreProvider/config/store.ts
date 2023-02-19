@@ -1,7 +1,5 @@
 import { CombinedState, Reducer, ReducersMapObject, configureStore } from '@reduxjs/toolkit';
 import { scrollSaveReducer } from 'features/ScrollSave';
-import { To } from 'history';
-import { NavigateOptions } from 'react-router';
 
 import { api } from 'shared/api/api';
 
