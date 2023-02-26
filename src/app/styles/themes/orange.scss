@@ -1,10 +1,10 @@
 .app_orange_theme {
    --bg-color: #faf4fb;
-   --inverted-bg-color: #00798a;
-   --primary-color: #272525;
-   --secondary-color: #a40bf9;
-   --inverted-primary-color: #dbd5dc;
-   --inverted-secondary-color: #faf4fb;
+   --inverted-bg-color: #dd8720;
+   --primary-color: #000;
+   --secondary-color: #000;
+   --inverted-primary-color: #fff;
+   --inverted-secondary-color: #fefecf;
 
    // Skeleton
    --skeleton-color: #fff;
@@ -14,5 +14,8 @@
    --code-bg: #fff;
 
    // Card
-   --card-bg: #ffeadc;
+   --card-bg: #dd8720;
+
+   // ListBox
+   --listbox-bg: #dd8720;
 }

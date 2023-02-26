@@ -1,5 +1,4 @@
 import React, { memo, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -50,7 +49,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             {collapsed ? '>' : '<'}
          </Button>
 
-         <VStack gap="8" className={styles.items}>
+         <VStack gap="12" className={styles.items}>
             {itemsList}
          </VStack>
 

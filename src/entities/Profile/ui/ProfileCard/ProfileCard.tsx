@@ -84,7 +84,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
       <VStack max gap="16" className={classNames(styles.profileCard, mods, [className])}>
          {/* eslint-disable-next-line i18next/no-literal-string */}
          {data?.avatar && (
-            <HStack justify="center" className={styles.avatarWrapper}>
+            <HStack justify="center" max className={styles.avatarWrapper}>
                <Avatar src={data?.avatar} />
             </HStack>
          )}

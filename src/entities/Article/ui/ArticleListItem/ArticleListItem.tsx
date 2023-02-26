@@ -1,4 +1,4 @@
-import React, { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
+import React, { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,11 +8,16 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { Card } from 'shared/ui/Card/Card';
+import { Card, CardTheme } from 'shared/ui/Card/Card';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text } from 'shared/ui/Text/Text';
 
-import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/article';
+import {
+   Article,
+   ArticleBlockType,
+   ArticleTextBlock,
+   ArticleView,
+} from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import styles from './ArticleListItem.module.scss';
 
@@ -23,65 +28,69 @@ interface ArticleListItemProps {
    target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleListItem = memo(({ className, article, view, target }: ArticleListItemProps) => {
-   const { t } = useTranslation();
-   const navigate = useNavigate();
+export const ArticleListItem = memo(
+   ({ className, article, view, target }: ArticleListItemProps) => {
+      const { t } = useTranslation();
+      const navigate = useNavigate();
 
-   const types = <Text text={article.type.join(', ')} className={styles.types} />;
-   const views = (
-      <>
-         <Text text={String(article.views)} className={styles.view} />
-         <Icon Svg={EyeIcon} />
-      </>
-   );
+      const types = <Text text={article.type.join(', ')} className={styles.types} />;
+      const views = (
+         <>
+            <Text text={String(article.views)} className={styles.view} />
+            <Icon Svg={EyeIcon} />
+         </>
+      );
 
-   if (view === ArticleView.BIG) {
-      const textBlock = article.blocks.find(
-         (block) => block.type === ArticleBlockType.TEXT,
-      ) as ArticleTextBlock;
+      if (view === ArticleView.BIG) {
+         const textBlock = article.blocks.find(
+            (block) => block.type === ArticleBlockType.TEXT,
+         ) as ArticleTextBlock;
+
+         return (
+            <div className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}>
+               <Card>
+                  <div className={styles.header}>
+                     <Avatar size={30} src={article.user.avatar} />
+                     <Text text={article.user.username} className={styles.username} />
+                     <Text text={article.createdAt} className={styles.date} />
+                  </div>
+                  <Text title={article.title} className={styles.title} />
+                  {types}
+                  <img src={article.img} alt={article.title} className={styles.img} />
+                  {textBlock && (
+                     <ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
+                  )}
+                  <div className={styles.footer}>
+                     <AppLink target={target} to={RoutePath.article_details + article.id}>
+                        <Button theme={ThemeButton.OUTLINE} className={styles.btn}>
+                           {t('Читать далее')}
+                        </Button>
+                     </AppLink>
+                     {views}
+                  </div>
+               </Card>
+            </div>
+         );
+      }
 
       return (
-         <div className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}>
-            <Card>
-               <div className={styles.header}>
-                  <Avatar size={30} src={article.user.avatar} />
-                  <Text text={article.user.username} className={styles.username} />
+         <AppLink
+            target={target}
+            to={RoutePath.article_details + article.id}
+            className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}
+         >
+            <Card className={styles.card} theme={CardTheme.OUTLINED}>
+               <div className={styles.imageWrapper}>
+                  <img src={article.img} className={styles.img} alt={article.title} />
                   <Text text={article.createdAt} className={styles.date} />
                </div>
-               <Text title={article.title} className={styles.title} />
-               {types}
-               <img src={article.img} alt={article.title} className={styles.img} />
-               {textBlock && <ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />}
-               <div className={styles.footer}>
-                  <AppLink target={target} to={RoutePath.article_details + article.id}>
-                     <Button theme={ThemeButton.OUTLINE} className={styles.btn}>
-                        {t('Читать далее')}
-                     </Button>
-                  </AppLink>
+               <div className={styles.infoWrapper}>
+                  {types}
                   {views}
                </div>
+               <Text text={article.title} className={styles.title} />
             </Card>
-         </div>
+         </AppLink>
       );
-   }
-
-   return (
-      <AppLink
-         target={target}
-         to={RoutePath.article_details + article.id}
-         className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}
-      >
-         <Card className={styles.card}>
-            <div className={styles.imageWrapper}>
-               <img src={article.img} className={styles.img} alt={article.title} />
-               <Text text={article.createdAt} className={styles.date} />
-            </div>
-            <div className={styles.infoWrapper}>
-               {types}
-               {views}
-            </div>
-            <Text text={article.title} className={styles.title} />
-         </Card>
-      </AppLink>
-   );
-});
+   },
+);
