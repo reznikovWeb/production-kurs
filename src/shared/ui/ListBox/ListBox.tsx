@@ -2,10 +2,10 @@ import { Listbox as HListbox } from '@headlessui/react';
 import React, { Fragment, ReactNode, memo } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { HStack } from 'shared/ui/Stack';
 
+import { DropDownDirection } from '../../types/ui';
 import { Button } from '../Button/Button';
-import { Text } from '../Text/Text';
+import { HStack } from '../Stack';
 import styles from './ListBox.module.scss';
 
 export interface ListBoxItem {
@@ -13,8 +13,6 @@ export interface ListBoxItem {
    content: ReactNode;
    disabled?: boolean;
 }
-
-type DropDownDirection = 'top' | 'bottom';
 
 interface ListBoxProps {
    className?: string;
@@ -28,8 +26,10 @@ interface ListBoxProps {
 }
 
 const mapDirectionClass: Record<DropDownDirection, string> = {
-   bottom: styles.optionBottom,
-   top: styles.optionTop,
+   'bottom left': styles.optionBottomLeft,
+   'bottom right': styles.optionBottomRight,
+   'top right': styles.optionTopRight,
+   'top left': styles.optionTopLeft,
 };
 
 export const ListBox = memo((props: ListBoxProps) => {
@@ -40,7 +40,7 @@ export const ListBox = memo((props: ListBoxProps) => {
       defaultValue,
       onChange,
       readonly,
-      direction = 'bottom',
+      direction = 'bottom left',
       label,
    } = props;
 
