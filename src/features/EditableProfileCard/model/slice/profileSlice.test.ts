@@ -3,7 +3,7 @@ import { Currency } from 'entities/Currency';
 
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { profileActions, profileReducer } from '../slice/profileSlice';
-import { ProfileSchema, ValidateProfileError } from '../types/profile';
+import { ProfileSchema, ValidateProfileError } from '../types/editableProfileCardSchema';
 
 const data = {
    username: 'admin',
@@ -66,13 +66,15 @@ describe('profileSlice.test', () => {
          isLoading: true,
       };
 
-      expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(data, ''))).toEqual({
-         isLoading: false,
-         validateErrors: undefined,
-         readonly: true,
-         validateError: undefined,
-         form: data,
-         data,
-      });
+      expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(data, ''))).toEqual(
+         {
+            isLoading: false,
+            validateErrors: undefined,
+            readonly: true,
+            validateError: undefined,
+            form: data,
+            data,
+         },
+      );
    });
 });

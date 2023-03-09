@@ -11,7 +11,7 @@ export const Counter: React.FC = () => {
    const dispatch = useDispatch();
 
    const counterValue = useSelector(getCounterValue);
-   console.log(counterValue);
+
    const { t } = useTranslation();
 
    const increment = () => {

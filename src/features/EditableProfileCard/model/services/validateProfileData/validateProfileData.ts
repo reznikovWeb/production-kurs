@@ -1,4 +1,6 @@
-import { Profile, ValidateProfileError } from '../../types/profile';
+import { Profile } from 'entities/Profile';
+
+import { ValidateProfileError } from '../../types/editableProfileCardSchema';
 
 export const validateProfileData = (profile?: Profile) => {
    if (!profile) {
@@ -15,7 +17,7 @@ export const validateProfileData = (profile?: Profile) => {
    if (!age || !Number.isInteger(age)) {
       errors.push(ValidateProfileError.INCORRECT_AGE);
    }
-   console.log(profile);
+
    if (!country) {
       errors.push(ValidateProfileError.INCORRECT_COUNTRY);
    }

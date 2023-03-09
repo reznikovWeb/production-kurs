@@ -3,8 +3,8 @@ import React, { Fragment, ReactNode, memo } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DropDownDirection } from 'shared/types/ui';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
 
+import { AppLink } from '../AppLink/AppLink';
 import styles from './DropDown.module.scss';
 
 export interface DropDownItem {
@@ -37,9 +37,10 @@ export const DropDown = memo((props: DropDownProps) => {
       <Menu as="div" className={classNames(styles.DropDown, {}, [className])}>
          <Menu.Button className={styles.btn}>{trigger}</Menu.Button>
          <Menu.Items className={classNames(styles.menu, {}, menuClasses)}>
-            {items.map((item) => {
+            {items.map((item, index) => {
                const content = ({ active }: { active: boolean }) => (
                   <button
+                     key={index}
                      type="button"
                      disabled={item.disabled}
                      onClick={item.onClick}
@@ -51,13 +52,17 @@ export const DropDown = memo((props: DropDownProps) => {
 
                if (item.href) {
                   return (
-                     <Menu.Item as={AppLink} to={item.href}>
+                     <Menu.Item key={index} as={AppLink} to={item.href} refName="href">
                         {content}
                      </Menu.Item>
                   );
                }
 
-               return <Menu.Item as={Fragment}>{content}</Menu.Item>;
+               return (
+                  <Menu.Item key={index} as={Fragment}>
+                     {content}
+                  </Menu.Item>
+               );
             })}
          </Menu.Items>
       </Menu>
