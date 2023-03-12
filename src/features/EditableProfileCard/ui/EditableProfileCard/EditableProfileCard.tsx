@@ -25,11 +25,10 @@ import { fetchProfileData } from '../../model/services/fetchProfileData/fetchPro
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import cls from './EditableProfileCard.module.scss';
 
 interface EditableProfileCardProps {
    className?: string;
-   id?: string;
+   id: string;
 }
 
 const reducers: ReducersList = {
@@ -118,11 +117,16 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
    return (
       <DynamicModuleLoader reducers={reducers}>
-         <VStack gap="8" className={classNames(cls.EditableProfileCard, {}, [className])}>
+         <VStack gap="8" className={classNames('', {}, [className])}>
             <EditableProfileCardHeader />
             {validateErrors?.length &&
                validateErrors.map((err) => (
-                  <Text theme={TextTheme.ERROR} text={validateErrorTranslates[err]} key={err} />
+                  <Text
+                     theme={TextTheme.ERROR}
+                     text={validateErrorTranslates[err]}
+                     key={err}
+                     data-testid="EditableProfileCard.Error"
+                  />
                ))}
             <ProfileCard
                data={form}
