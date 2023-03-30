@@ -11,7 +11,7 @@ import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { DropDown } from 'shared/ui/DropDown/DropDown';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 
-import { getUserAuthData, userActions } from 'entities/User';
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
 
 import styles from './Navbar.module.scss';
 
@@ -21,6 +21,9 @@ interface NavbarProps {
 
 export const Navbar = memo(({ className }: NavbarProps) => {
    const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
+
+   const isAdmin = useSelector(isUserAdmin);
+   const isManager = useSelector(isUserManager);
 
    const authData = useSelector(getUserAuthData);
 
@@ -39,6 +42,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
       dispatch(userActions.logout());
    }, [dispatch]);
 
+   const isAdminPanelAvailable = isAdmin || isManager;
+
    if (authData) {
       return (
          <header className={classNames(styles.Navbar, {}, [className])}>
@@ -54,6 +59,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                direction="bottom left"
                className={styles.dropDown}
                items={[
+                  ...(isAdminPanelAvailable
+                     ? [{ content: t('Админка'), href: RoutePath.admin_panel }]
+                     : []),
                   { content: t('Профиль'), href: RoutePath.profile + authData.id },
                   { content: t('Выйти'), onClick: onLogout },
                ]}
