@@ -69,13 +69,13 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
    if (isLoading) {
       content = (
-         <div>
+         <VStack gap="4" max>
             <Skeleton className={styles.avatar} width={200} height={200} border="50%" />
             <Skeleton width={300} height={32} />
             <Skeleton width={600} height={24} />
             <Skeleton width="100%" height={200} />
             <Skeleton width="100%" height={200} />
-         </div>
+         </VStack>
       );
    } else if (error) {
       content = <Text align={TextAlign.CENTER} title={t('Произошла ошибка при загрузке статьи')} />;
@@ -87,11 +87,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
             </HStack>
             <VStack gap="4" max>
                <Text title={article?.title} text={article?.subtitle} size={TextSize.L} />
-               <HStack gap="8">
+               <HStack gap="8" max>
                   <Icon Svg={EyeIcon} />
                   <Text text={String(article?.views)} />
                </HStack>
-               <HStack gap="8">
+               <HStack gap="8" max>
                   <Icon Svg={CalendarIcon} />
                   <Text text={article?.createdAt} />
                </HStack>
@@ -102,12 +102,10 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
    }
 
    return (
-      <div>
-         <DynamicModuleLoader reducers={reducers}>
-            <VStack gap="16" className={classNames(styles.ArticleDetails, {}, [className])}>
-               {content}
-            </VStack>
-         </DynamicModuleLoader>
-      </div>
+      <DynamicModuleLoader reducers={reducers}>
+         <VStack gap="16" max className={classNames(styles.ArticleDetails, {}, [className])}>
+            {content}
+         </VStack>
+      </DynamicModuleLoader>
    );
 });
