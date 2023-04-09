@@ -12,7 +12,6 @@ const MainPage = () => {
       <Page>
          <div>{t('Главная страница')}</div>
          <HStack>
-            <div>asdasd</div>
             <ListBox
                defaultValue="Выберите значение"
                onChange={(value: string) => {}}
