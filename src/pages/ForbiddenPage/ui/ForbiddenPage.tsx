@@ -7,7 +7,7 @@ interface ForbiddenPageProps {
    className?: string;
 }
 
-export const ForbiddenPage: React.FC<ForbiddenPageProps> = ({ className }) => {
+export const ForbiddenPage: React.FC<ForbiddenPageProps> = () => {
    const { t } = useTranslation();
    return <Page>{t('У вас нет доступа к этой странице')}</Page>;
 };

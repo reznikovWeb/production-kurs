@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { Article, ArticleView } from '../../model/types/article';
+import { ArticleView } from '../../model/const/articleConst';
+import { Article } from '../../model/types/article';
 import { ArticleList } from './ArticleList';
 
 export default {
@@ -117,12 +118,16 @@ LoadingSmall.args = {
 
 export const ListBig = Template.bind({});
 ListBig.args = {
-   articles: new Array(16).fill(0).map((item, index) => ({ ...article, id: String(index) })) as Article[],
+   articles: new Array(16)
+      .fill(0)
+      .map((item, index) => ({ ...article, id: String(index) })) as Article[],
    view: ArticleView.BIG,
 };
 
 export const ListSmall = Template.bind({});
 ListSmall.args = {
-   articles: new Array(16).fill(0).map((item, index) => ({ ...article, id: String(index) })) as Article[],
+   articles: new Array(16)
+      .fill(0)
+      .map((item, index) => ({ ...article, id: String(index) })) as Article[],
    view: ArticleView.SMALL,
 };

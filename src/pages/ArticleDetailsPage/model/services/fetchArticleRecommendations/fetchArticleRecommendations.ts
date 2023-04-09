@@ -20,7 +20,6 @@ export const fetchArticleRecommendations = createAsyncThunk<Article[], void, Thu
 
          return response.data;
       } catch (e) {
-         console.log(e);
          return rejectWithValue('error');
       }
    },

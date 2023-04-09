@@ -58,7 +58,7 @@ module.exports = {
       ],
       'max-len': ['error', { ignoreComments: true, code: 125 }],
       'linebreak-style': 0,
-      'arrow-body-style': ['warn', 'as-needed'],
+      'arrow-body-style': ['off', 'as-needed'],
       'jsx-a11y/no-static-element-interactions': 'off',
       'jsx-a11y/click-events-have-key-events': 'off',
       'react-hooks/exhaustive-deps': 'error',
