@@ -1,4 +1,3 @@
-import { ValidateProfileError } from 'features/EditableProfileCard';
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -17,6 +16,7 @@ import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
 
+import { ValidateProfileError } from '../../model/const/const';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileLoading } from '../../model/selectors/getProfileLoading/getProfileLoading';
