@@ -53,6 +53,7 @@ module.exports = {
                'direction',
                'gap',
                'div',
+               'border',
             ],
          },
       ],
