@@ -2,9 +2,9 @@
   "tabWidth": 3,
   "singleQuote": true,
   "importOrder": [
-    "^shared/(.*)$",
-    "^widgets/(.*)$",
-    "^entities/(.*)$",
+    "^@/shared/(.*)$",
+    "^@/widgets/(.*)$",
+    "^@/entities/(.*)$",
     "^[./]"
   ],
   "importOrderSeparation": true,

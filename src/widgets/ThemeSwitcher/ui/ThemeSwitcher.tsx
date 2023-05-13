@@ -1,5 +1,5 @@
-import { Theme, useTheme } from '@/app/providers/ThemeProvider';
 import React, { memo } from 'react';
+import { Theme, useTheme } from '@/app/providers/ThemeProvider';
 
 import DarkIcon from '@/shared/assets/icons/theme-dark.svg';
 import LightIcon from '@/shared/assets/icons/theme-light.svg';

@@ -1,8 +1,8 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
-import { getUIScrollByPath, scrollSaveActions } from '@/features/ScrollSave';
 import React, { MutableRefObject, ReactNode, UIEvent, memo, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { getUIScrollByPath, scrollSaveActions } from '@/features/ScrollSave';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';

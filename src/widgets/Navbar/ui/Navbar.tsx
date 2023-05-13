@@ -1,9 +1,9 @@
-import { LoginModal } from '@/features/AuthByUsername';
-import { AvatarDropdown } from '@/features/AvatarDropdown';
-import { NotificationButton } from '@/features/notificationButton';
 import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { LoginModal } from '@/features/AuthByUsername';
+import { AvatarDropdown } from '@/features/AvatarDropdown';
+import { NotificationButton } from '@/features/notificationButton';
 
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';

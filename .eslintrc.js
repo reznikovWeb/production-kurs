@@ -54,6 +54,8 @@ module.exports = {
                'gap',
                'div',
                'border',
+               'as',
+               'refName',
             ],
          },
       ],
