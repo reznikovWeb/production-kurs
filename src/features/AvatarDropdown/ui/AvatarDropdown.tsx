@@ -2,12 +2,12 @@ import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { DropDown } from 'shared/ui/Popups';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { DropDown } from '@/shared/ui/Popups';
 
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 
 import styles from './AvatarDropdown.module.scss';
 

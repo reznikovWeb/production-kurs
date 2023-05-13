@@ -1,8 +1,8 @@
-import { useTheme } from 'app/providers/ThemeProvider';
+import { useTheme } from '@/app/providers/ThemeProvider';
 import React, { ReactNode, memo, useCallback, useEffect } from 'react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAnimationLibs } from 'shared/lib/components/AnimationProvider';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';

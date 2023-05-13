@@ -1,12 +1,12 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import AboutIcon from 'shared/assets/icons/about.svg';
-import ArtilcesIcon from 'shared/assets/icons/articles.svg';
-import MainIcon from 'shared/assets/icons/main.svg';
-import ProfileIcon from 'shared/assets/icons/profile.svg';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import AboutIcon from '@/shared/assets/icons/about.svg';
+import ArtilcesIcon from '@/shared/assets/icons/articles.svg';
+import MainIcon from '@/shared/assets/icons/main.svg';
+import ProfileIcon from '@/shared/assets/icons/profile.svg';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
-import { getUserAuthData } from 'entities/User';
+import { getUserAuthData } from '@/entities/User';
 
 import { SidebarItemType } from '../types/sidebar';
 

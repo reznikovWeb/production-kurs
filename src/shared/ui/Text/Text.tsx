@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { Mods, classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 
 import styles from './Text.module.scss';
 

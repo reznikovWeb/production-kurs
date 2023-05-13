@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import avatar from 'shared/assets/tests/avatar.webp';
+import avatar from '@/shared/assets/tests/avatar.webp';
 
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 
 import { ProfileCard } from './ProfileCard';
 
