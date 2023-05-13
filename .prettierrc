@@ -3,8 +3,9 @@
   "singleQuote": true,
   "importOrder": [
     "^@/shared/(.*)$",
-    "^@/widgets/(.*)$",
     "^@/entities/(.*)$",
+    "^@/widgets/(.*)$",
+    "^@/app/(.*)$",
     "^[./]"
   ],
   "importOrderSeparation": true,
