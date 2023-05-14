@@ -1,0 +1,17 @@
+.starIcon {
+   fill: none;
+   cursor: pointer;
+   stroke: var(--start-rating);
+}
+
+.normal {
+   fill: none;
+}
+
+.hovered {
+   fill: var(--start-rating);
+}
+
+.selected {
+   cursor: auto;
+}
