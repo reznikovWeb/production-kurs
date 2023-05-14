@@ -2,7 +2,6 @@ import React, { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, SizeButton, ThemeButton } from '@/shared/ui/Button/Button';
 import { Card } from '@/shared/ui/Card/Card';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
@@ -12,8 +11,6 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import { StarRating } from '@/shared/ui/StarRating/StarRating';
 import { Text } from '@/shared/ui/Text/Text';
 
-import styles from './RatingCard.module.scss';
-
 interface RatingCardProps {
    className?: string;
    title?: string;
@@ -21,13 +18,14 @@ interface RatingCardProps {
    hasFeedback?: boolean;
    onCancel?: (starsCount: number) => void;
    onAccept?: (starsCount: number, feedback?: string) => void;
+   rate?: number;
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
-   const { className, feedbackTitle, title, hasFeedback, onCancel, onAccept } = props;
+   const { className, feedbackTitle, title, hasFeedback, onCancel, onAccept, rate = 0 } = props;
 
    const [isModalOpen, setIsModalOpen] = useState(false);
-   const [starsCount, setStarsCount] = useState(0);
+   const [starsCount, setStarsCount] = useState(rate);
    const [feedback, setFeedback] = useState('');
 
    const { t } = useTranslation();
@@ -62,10 +60,10 @@ export const RatingCard = memo((props: RatingCardProps) => {
    );
 
    return (
-      <Card className={classNames(styles.RatingCard, {}, [className])}>
+      <Card className={className} max>
          <VStack align="center" gap="8">
-            <Text title={title} />
-            <StarRating size={40} onSelect={onSelectStart} />
+            <Text title={starsCount ? t('Спасибо за оценку') : title} />
+            <StarRating size={40} onSelect={onSelectStart} selectedStars={starsCount} />
          </VStack>
          <BrowserView>
             <Modal isOpen={isModalOpen}>

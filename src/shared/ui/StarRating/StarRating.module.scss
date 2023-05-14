@@ -1,7 +1,7 @@
 .starIcon {
    fill: none;
    cursor: pointer;
-   stroke: var(--start-rating);
+   stroke: var(--primary-color);
 }
 
 .normal {
@@ -9,7 +9,7 @@
 }
 
 .hovered {
-   fill: var(--start-rating);
+   fill: var(--primary-color);
 }
 
 .selected {
