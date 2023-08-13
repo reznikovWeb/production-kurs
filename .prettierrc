@@ -4,6 +4,7 @@
   "importOrder": [
     "^@/shared/(.*)$",
     "^@/entities/(.*)$",
+    "^@/features/(.*)$",
     "^@/widgets/(.*)$",
     "^@/app/(.*)$",
     "^[./]"

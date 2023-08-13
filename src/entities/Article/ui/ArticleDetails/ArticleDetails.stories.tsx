@@ -3,9 +3,7 @@ import React from 'react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
-import { ArticleType } from '@/entities/Article';
-import { ArticleBlockType } from '@/entities/Article/model/const/articleConst';
-
+import { ArticleBlockType, ArticleType } from '../../model/const/articleConst';
 import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 

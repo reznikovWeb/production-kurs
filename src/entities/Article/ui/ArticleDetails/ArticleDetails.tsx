@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect } from 'react';
+import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -17,8 +17,7 @@ import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text';
 
-import { ArticleBlockType } from '@/entities/Article/model/const/articleConst';
-
+import { ArticleBlockType } from '../../model/const/articleConst';
 import {
    getArticleDetailIsLoading,
    getArticleDetailsData,

@@ -47,7 +47,7 @@ const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
    );
 
    const onCancel = useCallback(
-      (starsCount: number, feedback?: string) => {
+      (starsCount: number) => {
          handleRateArticle(starsCount);
       },
       [handleRateArticle],
