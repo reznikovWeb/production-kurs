@@ -4,7 +4,7 @@ import React from 'react';
 import { Popover } from './Popover';
 
 export default {
-   title: 'pages/Popover',
+   title: 'shared/Popover',
    component: Popover,
    argTypes: {
       backgroundColor: { control: 'color' },
