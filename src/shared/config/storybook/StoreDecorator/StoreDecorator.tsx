@@ -1,14 +1,17 @@
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { Story } from '@storybook/react';
-import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { addCommentFormReducer } from '@/features/AddCommentForm/model/slice/addCommentFormSlice';
-import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
-import { profileReducer } from '@/features/EditableProfileCard';
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slice';
 
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
+import { articleDetailsReducer } from '@/entities/Article/testing';
+
+import { addCommentFormReducer } from '@/features/AddCommentForm/testing';
+import { loginReducer } from '@/features/AuthByUsername/testing';
+import { profileReducer } from '@/features/EditableProfileCard';
+
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
+
+import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 
 const defaultAsyncReducers: ReducersList = {
    loginForm: loginReducer,

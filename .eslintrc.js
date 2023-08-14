@@ -75,7 +75,20 @@ module.exports = {
       'react/no-array-index-key': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',
       'no-unused-vars': 'off',
-      'fsd-rules/path-checker': ['error', { alias: '@' }],
+      'fsd-rules/path-checker': [
+         'error',
+         {
+            alias: '@',
+         },
+      ],
+      'fsd-rules/public-api-imports': [
+         'error',
+         {
+            alias: '@',
+            testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+         },
+      ],
+      '@typescript-eslint/ban-ts-comment': 'off',
    },
    globals: {
       __IS_DEV__: true,

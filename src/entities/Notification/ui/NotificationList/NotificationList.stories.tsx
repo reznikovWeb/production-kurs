@@ -1,4 +1,3 @@
-import { WithoutRate } from '@/features/ArticleRating/ui/ArticleRating/ArticleRating.stories';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import withMock from 'storybook-addon-mock';

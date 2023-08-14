@@ -14,7 +14,7 @@ import { ArticleDetails } from '@/entities/Article';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendationList } from '@/features/ArticleRecommendationList';
 
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page';
 
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
