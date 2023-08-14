@@ -4,7 +4,7 @@ import AboutIcon from '@/shared/assets/icons/about.svg';
 import ArtilcesIcon from '@/shared/assets/icons/articles.svg';
 import MainIcon from '@/shared/assets/icons/main.svg';
 import ProfileIcon from '@/shared/assets/icons/profile.svg';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/const/router';
 
 import { getUserAuthData } from '@/entities/User';
 
