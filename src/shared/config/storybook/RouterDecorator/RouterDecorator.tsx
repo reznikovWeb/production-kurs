@@ -1,6 +1,8 @@
 import { Story } from '@storybook/react';
-import '@/app/styles/index.scss';
 import { BrowserRouter } from 'react-router-dom';
+
+// eslint-disable-next-line fsd-rules/layer-imports
+import '@/app/styles/index.scss';
 
 export const RouterDecorator = (StoryComponent: Story) => (
    <BrowserRouter>

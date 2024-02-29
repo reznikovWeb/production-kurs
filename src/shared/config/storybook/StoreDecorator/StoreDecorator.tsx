@@ -7,6 +7,7 @@ import { articleDetailsReducer } from '@/entities/Article/testing';
 
 import { addCommentFormReducer } from '@/features/AddCommentForm/testing';
 import { loginReducer } from '@/features/AuthByUsername/testing';
+// eslint-disable-next-line fsd-rules/layer-imports
 import { profileReducer } from '@/features/EditableProfileCard';
 
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';

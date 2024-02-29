@@ -88,6 +88,13 @@ module.exports = {
             testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
          },
       ],
+      'fsd-rules/layer-imports': [
+         'error',
+         {
+            alias: '@',
+            ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+         },
+      ],
       '@typescript-eslint/ban-ts-comment': 'off',
    },
    globals: {
