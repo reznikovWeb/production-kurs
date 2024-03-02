@@ -111,7 +111,7 @@
       "@react-spring/web": "^9.5.2",
       "@reduxjs/toolkit": "^1.9.7",
       "@use-gesture/react": "^10.2.19",
-      "axios": "^1.6.7",
+      "axios": "^0.26.1",
       "concurrently": "^7.6.0",
       "copy-webpack-plugin": "^10.2.4",
       "i18next": "^21.9.0",
