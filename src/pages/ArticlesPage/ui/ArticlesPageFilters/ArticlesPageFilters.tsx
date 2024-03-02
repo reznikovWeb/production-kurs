@@ -9,15 +9,12 @@ import { SortOrder } from '@/shared/types';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
 
-import {
-   ArticleSortField,
-   ArticleType,
-   ArticleTypeTabs,
-   ArticleView,
-   ArticleViewSelector,
-} from '@/entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 
-import { ArticleSortSelector } from '../../../../entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+
 import {
    getArticlesPageOrder,
    getArticlesPageSearch,

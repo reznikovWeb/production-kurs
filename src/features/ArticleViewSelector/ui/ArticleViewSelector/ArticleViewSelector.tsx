@@ -6,7 +6,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ThemeButton } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 
-import { ArticleView } from '../../model/const/articleConst';
+import { ArticleView } from '@/entities/Article';
+
 import styles from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
