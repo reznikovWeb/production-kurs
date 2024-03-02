@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticlesDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -57,7 +57,7 @@ export const ArticleListItem = memo(
                      <ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
                   )}
                   <div className={styles.footer}>
-                     <AppLink target={target} to={RoutePath.article_details + article.id}>
+                     <AppLink target={target} to={getRouteArticlesDetails(article.id)}>
                         <Button theme={ThemeButton.OUTLINE} className={styles.btn}>
                            {t('Читать далее')}
                         </Button>
@@ -72,7 +72,7 @@ export const ArticleListItem = memo(
       return (
          <AppLink
             target={target}
-            to={RoutePath.article_details + article.id}
+            to={getRouteArticlesDetails(article.id)}
             className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}
          >
             <Card className={styles.card} theme={CardTheme.OUTLINED}>

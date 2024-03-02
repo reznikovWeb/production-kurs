@@ -2,7 +2,7 @@ import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticlesCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { Button, ThemeButton } from '@/shared/ui/Button';
@@ -41,7 +41,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
          <header className={classNames(styles.Navbar, {}, [className])}>
             <Text className={styles.appName} title={t('Заголовок')} theme={TextTheme.INVERTED} />
             <AppLink
-               to={RoutePath.article_create}
+               to={getRouteArticlesCreate()}
                theme={AppLinkTheme.SECONDARY}
                className={styles.createBtn}
             >

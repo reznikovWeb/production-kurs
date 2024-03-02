@@ -2,7 +2,7 @@ import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar';
 import { DropDown } from '@/shared/ui/Popups';
@@ -40,9 +40,9 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
          direction="bottom left"
          items={[
             ...(isAdminPanelAvailable
-               ? [{ content: t('Админка'), href: RoutePath.admin_panel }]
+               ? [{ content: t('Админка'), href: getRouteAdminPanel() }]
                : []),
-            { content: t('Профиль'), href: RoutePath.profile + authData.id },
+            { content: t('Профиль'), href: getRouteProfile(authData.id) },
             { content: t('Выйти'), onClick: onLogout },
          ]}
          trigger={<Avatar size={30} src={authData.avatar} />}
