@@ -5,11 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { getRouteArticlesDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppImage } from '@/shared/ui/AppImage/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button, ThemeButton } from '@/shared/ui/Button';
 import { Card, CardTheme } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text } from '@/shared/ui/Text';
 
 import { ArticleBlockType, ArticleView } from '../../model/const/articleConst';
@@ -27,7 +29,6 @@ interface ArticleListItemProps {
 export const ArticleListItem = memo(
    ({ className, article, view, target }: ArticleListItemProps) => {
       const { t } = useTranslation();
-      const navigate = useNavigate();
 
       const types = <Text text={article.type.join(', ')} className={styles.types} />;
       const views = (
@@ -52,7 +53,12 @@ export const ArticleListItem = memo(
                   </div>
                   <Text title={article.title} className={styles.title} />
                   {types}
-                  <img src={article.img} alt={article.title} className={styles.img} />
+                  <AppImage
+                     fallback={<Skeleton width="100%" height={250} />}
+                     src={article.img}
+                     alt={article.title}
+                     className={styles.img}
+                  />
                   {textBlock && (
                      <ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
                   )}
@@ -77,7 +83,12 @@ export const ArticleListItem = memo(
          >
             <Card className={styles.card} theme={CardTheme.OUTLINED}>
                <div className={styles.imageWrapper}>
-                  <img src={article.img} className={styles.img} alt={article.title} />
+                  <AppImage
+                     fallback={<Skeleton width={200} height={200} />}
+                     src={article.img}
+                     className={styles.img}
+                     alt={article.title}
+                  />
                   <Text text={article.createdAt} className={styles.date} />
                </div>
                <div className={styles.infoWrapper}>
