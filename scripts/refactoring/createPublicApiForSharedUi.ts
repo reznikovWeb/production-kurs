@@ -18,8 +18,8 @@ function isAbsolute(value: string) {
 }
 
 componentsDirs?.forEach((directory) => {
-   // Смотрим, если ли у нас уже созданный index.ts
-   const indexFilePath = directory.getPath() + '/index.ts';
+   // Смотрим, если ли у нас уже созданный sort.ts
+   const indexFilePath = directory.getPath() + '/sort.ts';
    const indexFile = directory.getSourceFile(indexFilePath);
 
    if (!indexFile) {
@@ -30,7 +30,7 @@ componentsDirs?.forEach((directory) => {
    }
 });
 
-// Заменяем импорты из shared/ui на файл из index.ts
+// Заменяем импорты из shared/ui на файл из sort.ts
 files.forEach((sourceFile) => {
    const importDeclarations = sourceFile.getImportDeclarations();
    importDeclarations.forEach((importDeclaration) => {

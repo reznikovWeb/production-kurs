@@ -9,5 +9,5 @@ interface ForbiddenPageProps {
 
 export const ForbiddenPage: React.FC<ForbiddenPageProps> = () => {
    const { t } = useTranslation();
-   return <Page>{t('У вас нет доступа к этой странице')}</Page>;
+   return <Page data-testid="ForbiddenPage">{t('У вас нет доступа к этой странице')}</Page>;
 };
